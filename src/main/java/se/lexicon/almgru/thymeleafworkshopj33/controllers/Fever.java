@@ -13,20 +13,24 @@ public class Fever {
     @GetMapping("/fever")
     public String fever(Model model) {
         if (temperature != null) {
-            String message = "";
+            StringBuilder message = new StringBuilder();
             String treatment = "";
+
+            message.append("Your temperature is ")
+                    .append(temperature)
+                    .append(", ");
 
             if (temperature <= 35.0) {
                 treatment = "Drink something warm and take a hot bath.";
-                message = "Your temperature is " + temperature + ", which is classified as hypothermia.";
-            } else if (temperature >= 37.5) {
+                message.append("which is classified as hypothermia.");
+            } else if (temperature >= 38) {
                 treatment = "Take some antipyretic medication.";
-                message = "Your temperature is " + temperature + ", which is classified as fever.";
+                message.append("which is classified as fever.");
             } else {
-                message = "Your temperature is " + temperature + ", which is normal.";
+                message.append("which is normal.");
             }
 
-            model.addAttribute("message", message);
+            model.addAttribute("message", message.toString());
 
             if (!treatment.isEmpty()) {
                 model.addAttribute("treatment", treatment);
