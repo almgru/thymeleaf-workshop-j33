@@ -29,6 +29,11 @@ public class Home {
         return "contact-list";
     }
 
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
+
     @PostMapping("/contact")
     public String contact(@RequestParam("name") String name) {
         if (name != null && !name.isEmpty()) {

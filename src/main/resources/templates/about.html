@@ -2,12 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Contact List</title>
+    <title>About</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <ul th:each="contact : ${contacts}">
-        <li th:text="${contact}"></li>
-    </ul>
+    <img th:src="@{/img/pic.jpg}" />
 </body>
 </html>
